@@ -27,8 +27,8 @@
 
 function saveyThing() {
     var password = document.getElementById("pass");
-    sessionStorage.setItem("password", password.value);
-    sessionStorage.setItem("set", true);
+    localStorage.setItem("password", password.value);
+    localStorage.setItem("set", true);
     showButton();
 }
 
@@ -36,7 +36,7 @@ function showPasswordForm() {
     document.getElementById("passwordform").style.display="inline";
     document.getElementById("open").style.display="none";
     document.getElementById("return").style.display="none";
-    sessionStorage.setItem("set", false);
+    localStorage.setItem("set", false);
 }
 
 function showButton() {
