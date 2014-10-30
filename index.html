@@ -59,7 +59,7 @@ Password: <input type="password" name="pwd" id="pass"><br>
 
 <script>
 console.log(localStorage.getItem("set"));
-if(localStorage.getItem("set"))
+if(localStorage.getItem("set") != "null" && localStorage.getItem("set") != "false")
 {
     showButton();
 }
