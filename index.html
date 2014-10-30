@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+    #open{
+        display:none;
+        width:95vw;
+        height:95vh;
+        background-color: red;
+        border-color: red;
+        font-size: 50;
+    }
+    .wrapper{
+        text-align: center;
+    }
+    .button{
+        position: absolute;
+        top: 50%;
+    }
+    </style>
+    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha256.js"></script>
+</head>
+
+<body>
+<script>
+
+function saveyThing() {
+    var password = document.getElementById("pass");
+    sessionStorage.setItem("password", password.value);
+    sessionStorage.setItem("set", true);
+    showButton();
+}
+
+function showPasswordForm() {
+    document.getElementById("passwordform").style.display="inline";
+    document.getElementById("open").style.display="none";
+    document.getElementById("return").style.display="none";
+    sessionStorage.setItem("set", false);
+}
+
+function showButton() {
+    document.getElementById("passwordform").style.display="none";
+    document.getElementById("open").style.display="inline";
+    document.getElementById("return").style.display="inline";
+}
+
+</script>
+
+<form id="passwordform">
+Password: <input type="password" name="pwd" id="pass"><br>
+<input type="button" value="Submit" onclick="saveyThing()">
+</form>
+
+<div class="wrapper">
+<button id="open" onclick="openDoor()">Alohomora!</button>
+<button id="return" style="display:none;" onclick="showPasswordForm()">Re-enter password</button>
+</div>
+
+<script>
+console.log(sessionStorage.getItem("set"));
+if(sessionStorage.getItem("set"))
+{
+    showButton();
+}
+else
+{
+    showPasswordForm();
+}
+</script>
+</body>
+</html>
