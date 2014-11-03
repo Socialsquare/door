@@ -19,6 +19,8 @@
         top: 50%;
     }
     </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
     <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha256.js"></script>
 </head>
 
@@ -46,18 +48,39 @@ function showButton() {
 }
 
 function openDoor() {
-    console.log(localStorage.getItem("set"));
+    console.log(localStorage.getItem("password"));
 }
+
+$(document).ready(function(){
+    $("#open").click(function()
+    {
+        console.log("got here");
+
+        $.post("http://10.13.37.40", {key: 0}, function(data, status)
+        {
+            if (status == "success")
+            {
+                console.log("It worked!");
+                console.log("Doing super advanced cryptography…");
+                passkey = CryptoJS.SHA1(key);
+                $.post("https://10.13.37.40", {key: passkey.value}, function(data, status){
+                        console.log(status);
+                });
+            }
+        });
+    });
+});
 
 </script>
 
 <form id="passwordform">
 Password: <input type="password" name="pwd" id="pass"><br>
+<input type="text" style="display:none;">
 <input type="button" value="Submit" onclick="saveyThing()">
 </form>
 
 <div class="wrapper">
-<button id="open" onclick="openDoor()">Alohomora!</button>
+<button id="open">Alohomora!</button>
 <button id="return" style="display:none;" onclick="showPasswordForm()">Re-enter password</button>
 </div>
 
