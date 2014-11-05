@@ -1,34 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha256.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+
+
+
     <style>
+
     #open{
         display:none;
-        width:95vw;
-        height:95vh;
-        background-color: red;
-        border-color: red;
-        font-size: 50;
+        width:100vw;
+        height:50vh;
+        background-color: #2EB82E;
+        border-color: #2EB82E;
+        font-size: 300%;
+        color: white;
+        border-radius: 15px;
     }
+
     .wrapper{
         text-align: center;
     }
-    .button{
-        position: absolute;
-        top: 50%;
-    }
-    @media only screen and (max-width: 480px), only screen and (max-device-width:480px) {
-        .button{
-            position: absolute;
-            width: 90px;
-            height: 40px;
-        }
-    }
-    </style>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha256.js"></script>
+    #return{
+        text-align: center;
+        top: 50%;
+        width: 100vw;
+        height: 50vh;
+        border-radius: 15px;
+
+    }
+
+    #passwordform{
+            position: relative;
+            display: block;
+            width: 100px;
+            top: 40vh;
+            margin: 0 auto;
+            font-size: 150%;
+        }
+
+    #pass{
+        height: 10vh;
+        width: 80vw;
+        font-size: 200%;
+    }
+
+    
+    @media (min-width: 768px) {
+        body{
+            overflow: hidden;
+            text-align: center;
+        }
+        #open{
+            display:none;
+            width: 98vw;
+            height:95vh;
+            background-color: #2EB82E;
+            border-color: #2EB82E;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 500%;
+            color: white;
+/*            border-radius: 15px;
+*/      }
+        #return{
+            top: auto;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25vw;
+            height: 5vh;
+        }
+
+        
+
+    }
+
+
+    </style>
+
 </head>
 
 <body>
@@ -50,8 +113,8 @@ function showPasswordForm() {
 
 function showButton() {
     document.getElementById("passwordform").style.display="none";
-    document.getElementById("open").style.display="inline";
-    document.getElementById("return").style.display="inline";
+    document.getElementById("open").style.display="block";
+    document.getElementById("return").style.display="block";
 }
 
 $(document).ready(function(){
@@ -105,15 +168,19 @@ $(document).ready(function(){
 
 </script>
 
+
+<div class="wrapper">
+
 <form id="passwordform">
 Password: <input type="password" name="pwd" id="pass"><br>
 <input type="text" style="display:none;">
 <input type="button" value="Submit" onclick="saveyThing()">
 </form>
 
-<div class="wrapper">
+
 <button id="open">Alohomora!</button>
-<button id="return" style="display:none;" onclick="showPasswordForm()">Re-enter password</button>
+<button class="btn btn-default" id="return" style="display:none;" onclick="showPasswordForm()">Re-enter password</button>
+
 </div>
 
 <script>
