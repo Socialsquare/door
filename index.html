@@ -107,12 +107,6 @@
 <body>
 <script>
 
-function saveyThing() {
-    var password = document.getElementById("pass");
-    localStorage.setItem("password", password.value);
-    localStorage.setItem("set", true);
-    showButton();
-}
 
 function showPasswordForm() {
     document.getElementById("passwordform").style.display="inline";
@@ -128,6 +122,15 @@ function showButton() {
 }
 
 $(document).ready(function(){
+
+    $("#passwordform").on("submit", function(e) {
+        var password = document.getElementById("pass");
+        localStorage.setItem("password", password.value);
+        localStorage.setItem("set", true);
+        showButton();
+        e.preventDefault();
+    });
+
     $("#open").click(function()
     {
         $.ajax("http://10.13.37.40", 
@@ -184,7 +187,7 @@ $(document).ready(function(){
 <form id="passwordform">
 Password: <input type="password" name="pwd" id="pass"><br>
 <input type="text" style="display:none;">
-<button type="submit" value="Submit" id="passsubmit" onclick="saveyThing()">Submit</button>
+<button type="submit" value="Submit" id="passsubmit">Submit</button>
 </form>
 
 
