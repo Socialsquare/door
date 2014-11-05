@@ -138,7 +138,7 @@ $(document).ready(function(){
             {crossDomain: true, 
                 type: "GET", 
                 dataType: "json", 
-                data: {"key": -1},
+                data: {"key": -1, "epoc": (new Date).getTime()},
                 beforeSend: function (request)
                 {
                     request.withCredentials = true;
@@ -153,14 +153,15 @@ $(document).ready(function(){
                     console.log(data.key);
                     console.log("the data should be above me");
                     var key_string = data.key.toString();
-                    var encrypted = CryptoJS.SHA256(key_string + localStorage.getItem("password"));
+                    var time = (new Date).getTime();
+                    var encrypted = CryptoJS.SHA256(key_string + localStorage.getItem("password") + time);
                     console.log(encrypted.toString(CryptoJS.enc.Hex));
                     // var encrypted = CryptoJS.SHA256(data.key);
                     $.ajax("http://10.13.37.40", 
                         {crossDomain: true, 
                             type: "GET", 
                             dataType: "json", 
-                            data: {"key": encrypted.toString(CryptoJS.enc.Hex)},
+                            data: {"key": encrypted.toString(CryptoJS.enc.Hex), "epoc": time},
                             beforeSend: function (request)
                             {
                                 request.withCredentials = true;
