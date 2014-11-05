@@ -18,7 +18,10 @@
 
 
     <style>
-
+    body{
+        overflow: hidden;
+        text-align: center;
+    }
     #open{
         display:none;
         width:100vw;
@@ -60,10 +63,7 @@
 
     
     @media (min-width: 768px) {
-        body{
-            overflow: hidden;
-            text-align: center;
-        }
+
         #open{
             display:none;
             width: 98vw;
@@ -175,7 +175,6 @@ $(document).ready(function(){
 Password: <input type="password" name="pwd" id="pass"><br>
 <input type="text" style="display:none;">
 <input type="button" value="Submit" onclick="saveyThing()">
-<input type="submit" style="visiblity:hidden;position:absolute"/>
 </form>
 
 
