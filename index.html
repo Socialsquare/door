@@ -47,10 +47,15 @@
 
     }
 
+    #passsubmit{
+        width: 70vw;
+        height: 15vw;
+    }
+
     #passwordform{
             position: relative;
             display: block;
-            width: 100px;
+            width: 100%;
             top: 40vh;
             margin: 0 auto;
             font-size: 150%;
@@ -77,6 +82,10 @@
             color: white;
 /*            border-radius: 15px;
 */      }
+        #passsubmit{
+            width: auto;
+            heigh: auto;
+        }
         #return{
             top: auto;
             text-align: center;
@@ -175,7 +184,7 @@ $(document).ready(function(){
 <form id="passwordform">
 Password: <input type="password" name="pwd" id="pass"><br>
 <input type="text" style="display:none;">
-<button type="submit" value="Submit" onclick="saveyThing()">
+<button type="submit" value="Submit" id="passsubmit" onclick="saveyThing()">Submit</button>
 </form>
 
 
