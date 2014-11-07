@@ -15,7 +15,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
 
     <style>
@@ -186,6 +189,9 @@ $(document).ready(function(){
                             success:function(data){
                                 console.log("Door open:");
                                 console.log(data.open);
+                                if (!data.open){
+                                    $("#open").effect("shake");
+                                }
                             }
                         });
                 }
@@ -195,7 +201,6 @@ $(document).ready(function(){
 
 </script>
 
-
 <div class="wrapper">
 
 <form id="passwordform" data-ajax="false">
@@ -204,10 +209,9 @@ Password: <input type="password" name="pwd" id="pass"><br>
 <button type="submit" value="Submit" id="passsubmit">Submit</button>
 </form>
 
-
 <button class="btn btn-success" id="open">Alohomora!</button>
 <button class="btn btn-default" id="return" style="display:none;" onclick="showPasswordForm()">Re-enter password</button>
-
+</div>
 </div>
 
 <script>
