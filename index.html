@@ -162,6 +162,7 @@ $(document).ready(function(){
                 error:function(jqXHR, textStatus, errorThrown){
                     console.log("textStatus: " + textStatus);
                     console.log("errorThrown: " + errorThrown);
+                    $("#open").effect("shake");
                 },
                 success:function(data){
                     console.log("It worked!");
