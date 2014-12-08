@@ -181,7 +181,10 @@ void loop() {
 
               // Make a string from the output of the Sha256 object.
               String correctAnswer = makeHash(desired);
-              
+                          
+              // Randomize currentNumber to prevent someone from just replaying the last packet.
+              currentNumber = random() * maxRandom;
+            
               // If what you calculated is the same thing that the user submit, they're legitimate! Let them in.
               if(correctAnswer == userAnswer)
               {
@@ -195,9 +198,7 @@ void loop() {
                 body = "{\"open\": false}";
               }
             }
-            
-            // Randomize currentNumber to prevent someone from just replaying the last packet.
-            currentNumber = random() * maxRandom;
+
 
             // Add two new lines to the end of the body to terminate it.
             body += "\n\n";
